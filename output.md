@@ -23,7 +23,7 @@ Commands used:
 ```bash
 docker pull bkimminich/juice-shop
 docker run --rm --name cycode-juice-shop -p 127.0.0.1:3000:3000 bkimminich/juice-shop
-``
+```
 
 After the container started, I opened `http://localhost:3000` and confirmed that the application loaded successfully.
 
@@ -53,7 +53,20 @@ In a production environment, I would also require:
 
 ### Repository Settings
 
-At the time of this initial commit, the `master` branch was not protected. After completing the required direct commit, I will add a GitHub rule requiring future changes to use a pull request.
+After completing the required initial direct commit, I created an active GitHub branch ruleset named `Protect default branch`.
+
+The ruleset:
+
+- Targets the default branch.
+- Requires changes to be submitted through a pull request.
+- Blocks force pushes.
+- Restricts deletion of the protected branch.
+
+For this personal demonstration repository, I did not require an independent approval because no second collaborator is available. In a production repository, I would require at least one qualified reviewer and successful automated status checks.
+
+![GitHub branch protection ruleset](assignment-evidence/branch-ruleset.png)
+
+This update was made through a feature branch and pull request rather than by committing directly to `master`.
 
 ## Security Scan
 
